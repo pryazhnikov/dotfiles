@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keymap version="1" name="Victor" parent="$default">
+  <action id="CloseActiveTab">
+    <keyboard-shortcut first-keystroke="shift control F4" />
+    <keyboard-shortcut first-keystroke="control W" />
+  </action>
+  <action id="CommentByBlockComment">
+    <keyboard-shortcut first-keystroke="shift control SLASH" />
+    <keyboard-shortcut first-keystroke="shift control DIVIDE" />
+    <keyboard-shortcut first-keystroke="shift control Q" />
+  </action>
+  <action id="CommentByLineComment">
+    <keyboard-shortcut first-keystroke="control SLASH" />
+    <keyboard-shortcut first-keystroke="control DIVIDE" />
+    <keyboard-shortcut first-keystroke="control Q" />
+  </action>
+  <action id="EditorCodeBlockStart">
+    <keyboard-shortcut first-keystroke="control OPEN_BRACKET" />
+    <keyboard-shortcut first-keystroke="shift control B" />
+    <keyboard-shortcut first-keystroke="control alt E" />
+  </action>
+  <action id="EditorCodeBlockStartWithSelection">
+    <keyboard-shortcut first-keystroke="shift control OPEN_BRACKET" />
+    <keyboard-shortcut first-keystroke="shift control E" />
+  </action>
+  <action id="EditorDeleteLine">
+    <keyboard-shortcut first-keystroke="control Y" />
+    <keyboard-shortcut first-keystroke="control L" />
+  </action>
+  <action id="EditorSelectWord" />
+  <action id="FindNext">
+    <keyboard-shortcut first-keystroke="F3" />
+  </action>
+  <action id="GotoNextBookmark">
+    <keyboard-shortcut first-keystroke="F2" />
+  </action>
+  <action id="GotoNextError" />
+  <action id="GotoPreviousBookmark">
+    <keyboard-shortcut first-keystroke="shift F2" />
+  </action>
+  <action id="GotoPreviousError" />
+  <action id="GotoTypeDeclaration">
+    <mouse-shortcut keystroke="shift control button1" />
+    <mouse-shortcut keystroke="shift button2" />
+  </action>
+  <action id="GuiDesigner.ExpandSelection" />
+  <action id="GuiDesigner.QuickJavadoc" />
+  <action id="PerforceDirect.Edit" />
+  <action id="QuickJavaDoc">
+    <mouse-shortcut keystroke="alt button2" />
+  </action>
+  <action id="RecentChangedFiles" />
+  <action id="Replace">
+    <keyboard-shortcut first-keystroke="control R" />
+    <keyboard-shortcut first-keystroke="control H" />
+  </action>
+  <action id="ShowBookmarks">
+    <keyboard-shortcut first-keystroke="shift F11" />
+    <keyboard-shortcut first-keystroke="F11" />
+  </action>
+  <action id="Stop" />
+  <action id="ToggleBookmark">
+    <keyboard-shortcut first-keystroke="control F2" />
+  </action>
+  <action id="TypeHierarchy" />
+</keymap>
+
