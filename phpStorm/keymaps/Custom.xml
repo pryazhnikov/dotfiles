@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keymap version="1" name="Victor" parent="$default">
+<keymap version="1" name="Custom" parent="$default">
   <action id="CloseActiveTab">
     <keyboard-shortcut first-keystroke="shift control F4" />
     <keyboard-shortcut first-keystroke="control W" />
