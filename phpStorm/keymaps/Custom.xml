@@ -3,6 +3,7 @@
   <action id="CloseActiveTab">
     <keyboard-shortcut first-keystroke="shift control F4" />
     <keyboard-shortcut first-keystroke="control W" />
+    <keyboard-shortcut first-keystroke="control F4" />
   </action>
   <action id="CommentByBlockComment">
     <keyboard-shortcut first-keystroke="shift control SLASH" />
@@ -13,6 +14,9 @@
     <keyboard-shortcut first-keystroke="control SLASH" />
     <keyboard-shortcut first-keystroke="control DIVIDE" />
     <keyboard-shortcut first-keystroke="control Q" />
+  </action>
+  <action id="ConvertIndentsToSpaces">
+    <keyboard-shortcut first-keystroke="control T" />
   </action>
   <action id="EditorCodeBlockStart">
     <keyboard-shortcut first-keystroke="control OPEN_BRACKET" />
@@ -26,6 +30,10 @@
   <action id="EditorDeleteLine">
     <keyboard-shortcut first-keystroke="control Y" />
     <keyboard-shortcut first-keystroke="control L" />
+  </action>
+  <action id="EditorJoinLines">
+    <keyboard-shortcut first-keystroke="shift control J" />
+    <keyboard-shortcut first-keystroke="control J" />
   </action>
   <action id="EditorSelectWord" />
   <action id="FindNext">
