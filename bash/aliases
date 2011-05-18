@@ -1,2 +1,5 @@
 alias ll='ls -lF'
 alias la='ls -laF'
+
+alias ff='find . -type f | egrep -v "/.svn"'
+alias fd='find . -type d | egrep -v "/.svn"'
