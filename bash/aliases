@@ -1,5 +1,10 @@
 alias ll='ls -lF'
 alias la='ls -laF'
 
-alias ff='find . -type f | egrep -v "/.svn"'
-alias fd='find . -type d | egrep -v "/.svn"'
+alias fd='find . -type d -not -path "*/.svn*" -not -path "*/.git*"'
+alias ff='find . -type f -not -path "*/.svn*" -not -path "*/.git*"'
+alias fp='find . -type f -not -path "*/.svn*" -not -path "*/.git*" -name "*.php"'
+
+alias sup='svn up'
+alias sst='svn status'
+alias sin='svn info'
