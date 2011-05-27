@@ -1,10 +1,11 @@
-alias ll='ls -lF'
 alias la='ls -laF'
+alias ll='ls -lF'
 
 alias fd='find . -type d -not -path "*/.svn*" -not -path "*/.git*"'
-alias ff='find . -type f -not -path "*/.svn*" -not -path "*/.git*"'
-alias fp='find . -type f -not -path "*/.svn*" -not -path "*/.git*" -name "*.php"'
+alias fl='find . -type l'
+alias ff='find . -type f -not -path "*/.svn/*" -not -path "*/.git/*"'
+alias fp='ff -name "*.php"'
 
-alias sup='svn up'
-alias sst='svn status'
 alias sin='svn info'
+alias sst='svn status'
+alias sup='svn up'

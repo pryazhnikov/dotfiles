@@ -1,0 +1,11 @@
+[core]
+	editor = vi
+[user]
+    name = Victor Pryazhnikov
+    email = victor.pryazhnikov@gmail.com
+[alias]
+    co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=iso

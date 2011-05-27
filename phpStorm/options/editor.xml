@@ -5,7 +5,7 @@
     <option name="USE_SOFT_WRAPS" />
     <option name="USE_CUSTOM_SOFT_WRAP_INDENT" value="false" />
     <option name="CUSTOM_SOFT_WRAP_INDENT" value="0" />
-    <option name="IS_VIRTUAL_SPACE" value="true" />
+    <option name="IS_VIRTUAL_SPACE" value="false" />
     <option name="IS_CARET_INSIDE_TABS" value="false" />
     <option name="STRIP_TRAILING_SPACES" value="Changed" />
     <option name="IS_ENSURE_NEWLINE_AT_EOF" value="false" />
@@ -31,4 +31,3 @@
     <option name="SHOW_OPIMIZE_IMPORTS_DIALOG" value="true" />
   </component>
 </application>
-
