@@ -6,6 +6,12 @@ alias fl='find . -type l'
 alias ff='find . -type f -not -path "*/.svn/*" -not -path "*/.git/*"'
 alias fp='ff -name "*.php"'
 
+alias gi='grep -ni'
+alias gl='grep -l'
+alias gn='grep -n'
+alias gv='grep -v'
+
+alias sad='svn add'
 alias sin='svn info'
 alias sst='svn status'
 alias sup='svn up'
