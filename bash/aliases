@@ -1,6 +1,8 @@
 alias la='ls -laF'
 alias ll='ls -lF'
 
+alias dirq='diff -rq'
+
 alias fd='find . -type d -not -path "*/.svn*" -not -path "*/.git*"'
 alias fl='find . -type l'
 alias ff='find . -type f -not -path "*/.svn/*" -not -path "*/.git/*"'
@@ -11,7 +13,9 @@ alias gl='grep -l'
 alias gn='grep -n'
 alias gv='grep -v'
 
+alias xgn='xargs grep -n'
+
 alias sad='svn add'
 alias sin='svn info'
 alias sst='svn status'
-alias sup='svn up'
+alias sup='svn up --non-interactive'
