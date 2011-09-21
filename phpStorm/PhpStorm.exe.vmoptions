@@ -1,0 +1,6 @@
+-Xms256m
+-Xmx512m
+-XX:PermSize=1024m
+-XX:MaxPermSize=1024m
+-ea
+-Didea.platform.prefix=PhpStorm
