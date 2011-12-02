@@ -10,12 +10,14 @@ alias fp='ff \( -name "*.php" -o -name "*.pl" -o -name "*.pm" \)'
 alias fj='ff -name "*.js"'
 
 alias g='grep --color'
+alias gc='grep -c'
 alias ge='egrep --color'
 alias gn='grep --color -n'
 alias gi='grep --color -ni'
 alias gl='grep -l'
 alias gv='grep -v'
 
+alias xg='xargs grep --color'
 alias xgn='xargs grep --color -n'
 
 alias sad='svn add'
