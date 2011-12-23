@@ -1,0 +1,3 @@
+Editor -> Virtual Space -> Allow placement of caret end of line
+Editor -> Appearance -> Show line numbers / Show method separators / Show whitespaces
+Editor -> Editor Tabs -> Mark modified tabs with asterisk

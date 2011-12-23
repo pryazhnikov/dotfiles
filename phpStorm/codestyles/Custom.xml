@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<code_scheme name="victor">
-  <option name="USE_SAME_INDENTS" value="true" />
+<code_scheme name="Custom">
   <option name="RIGHT_MARGIN" value="100" />
   <ADDITIONAL_INDENT_OPTIONS fileType="css">
     <option name="INDENT_SIZE" value="4" />
@@ -24,7 +23,7 @@
   </ADDITIONAL_INDENT_OPTIONS>
   <ADDITIONAL_INDENT_OPTIONS fileType="php">
     <option name="INDENT_SIZE" value="4" />
-    <option name="CONTINUATION_INDENT_SIZE" value="8" />
+    <option name="CONTINUATION_INDENT_SIZE" value="4" />
     <option name="TAB_SIZE" value="4" />
     <option name="USE_TAB_CHARACTER" value="false" />
     <option name="SMART_TABS" value="false" />
@@ -45,6 +44,10 @@
   <codeStyleSettings language="PHP">
     <option name="CLASS_BRACE_STYLE" value="1" />
     <option name="METHOD_BRACE_STYLE" value="1" />
+    <option name="SPACE_AROUND_UNARY_OPERATOR" value="true" />
+    <option name="SPACE_WITHIN_IF_PARENTHESES" value="true" />
+    <option name="SPACE_WITHIN_WHILE_PARENTHESES" value="true" />
+    <option name="SPACE_WITHIN_ARRAY_INITIALIZER_BRACES" value="true" />
     <option name="SPACE_AFTER_TYPE_CAST" value="true" />
   </codeStyleSettings>
 </code_scheme>
