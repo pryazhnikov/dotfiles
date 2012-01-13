@@ -27,7 +27,7 @@ alias sad='svn add'
 alias sin='svn info'
 alias sst='svn status'
 alias sup='svn up --non-interactive'
-alias syn='sst | ge "^[MRA]" | perl -pe "s/.+?\s(\S+)$/\$1/" | xargs -L 1 php --syntax-check'
+alias syn='sst; echo; sst | ge "^[MRA]" | perl -pe "s/.+?\s(\S+)$/\$1/" | xargs -L 1 php --syntax-check'
 
 alias dirq='diff -rq'
 alias pass='head -n 1 /dev/random | md5'
