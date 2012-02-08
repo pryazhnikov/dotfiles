@@ -1,0 +1,2 @@
+source ${SHELL_CONFIG_PATH}include/aliases
+source ${SHELL_CONFIG_PATH}include/export
