@@ -6,11 +6,23 @@ else
     return
 fi
 
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# include files
 source ${SHELL_CONFIG_PATH}include/aliases
 source ${SHELL_CONFIG_PATH}include/export
+source ${SHELL_CONFIG_PATH}include/functions
 
 LOCAL_INCLUDE_FILE=${SHELL_CONFIG_PATH}include/local
 if [ -f $LOCAL_INCLUDE_FILE ]
 then
     source $LOCAL_INCLUDE_FILE
+fi
+
+if [ -d ~/bin ]
+then
+    PATH=$PATH:~/bin
+    echo $PATH
 fi

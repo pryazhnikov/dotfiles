@@ -1,0 +1,47 @@
+function syntax {
+    sst
+    
+    echo
+    echo "SYNTAX CHECKING"
+    MODIFIED_FILES=$( sst | ge "^[MRA]" | perl -pe "s/.+?\s(\S+)$/\$1/" )
+    for FILE in $MODIFIED_FILES; do
+        if [ -f $FILE ]; then
+            php --syntax-check $FILE
+        fi
+    done
+    
+    echo
+    echo "DEBUG CHECKING"
+    for FILE in $MODIFIED_FILES; do
+        if [ -f $FILE ]; then
+            DATA=`svn diff $FILE | sed -n '/^\+/p' | perl -ne 'print if /var_dump|print_r|var_export/'`
+            if [ "$DATA" != "" ]; then
+                echo $FILE
+                echo $DATA
+            fi
+        fi
+    done
+}
+
+function phpdoc {
+    SOURCE_DIR=$1
+    TARGET_DIR=$2
+    
+    if ! [ -d $SOURCE_DIR ]; then
+        echo Source $SOURCE_DIR not found
+        return
+    fi
+    
+    if ! [ -d $TARGET_DIR ]; then
+        echo Target $TARGET_DIR not found
+        return
+    fi
+        
+    if [ "$PHP_DOC" == "" ]; then
+        echo "\$PHP_DOC don't exists"
+        return
+    fi
+    
+    echo Source $SOURCE_DIR Target: $TARGET_DIR
+    $PHP_DOC --directory $SOURCE_DIR --target $TARGET_DIR
+}
