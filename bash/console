@@ -16,13 +16,11 @@ source ${SHELL_CONFIG_PATH}include/export
 source ${SHELL_CONFIG_PATH}include/functions
 
 LOCAL_INCLUDE_FILE=${SHELL_CONFIG_PATH}include/local
-if [ -f $LOCAL_INCLUDE_FILE ]
-then
+if [ -f $LOCAL_INCLUDE_FILE ]; then
     source $LOCAL_INCLUDE_FILE
 fi
 
-if [ -d ~/bin ]
-then
+if [ -d ~/bin ]; then
     PATH=$PATH:~/bin
     echo $PATH
 fi
