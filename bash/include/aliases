@@ -48,8 +48,8 @@ alias df='df -ih'
 alias du='du -h'
 alias hi='history'
 alias ln='ln -h'
-alias xa='xargs'
 alias wl='wc -l'
+alias xa='xargs'
 
 # Long aliases (no group)
 alias dirq='diff -rq'
