@@ -14,7 +14,7 @@ function syntax {
     echo "DEBUG CHECKING"
     for FILE in $MODIFIED_FILES; do
         if [ -f $FILE ]; then
-            DATA=`svn diff $FILE | sed -n '/^\+/p' | perl -ne 'print if /var_dump|print_r|var_export/'`
+            DATA=`svn diff $FILE | sed -n '/^\+/p' | egrep --color=always -i 'var_dump|print_r|var_export'`
             if [ "$DATA" != "" ]; then
                 echo $FILE
                 echo $DATA
