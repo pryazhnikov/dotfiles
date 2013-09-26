@@ -1,0 +1,8 @@
+zstyle :compinstall filename '/home/vpryazhnikov/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+autoload -U colors && colors
+export PS1="%{$fg[red]%}%U%n@`/bin/hostname -f` %~%#%{$reset_color%}%u "
+
