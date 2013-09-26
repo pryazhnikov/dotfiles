@@ -18,4 +18,3 @@ export LESS_TERMCAP_ue=$'\E[0m'          # end underline
 export LESS_TERMCAP_us=$'\E[04;32;146m'  # begin underline
 
 export MYSQL_PS1='[\h] \d> '
-export PS1='\[\e[4;31m\][\u@\h \w]\$\[\e[0m\] '
