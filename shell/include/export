@@ -8,7 +8,7 @@ export SAVEHIST=$HISTSIZE
 export GREP_OPTIONS='--color=auto --exclude=\*/.svn/\*'
 export GREP_COLOR='7;36'
 
-export LESS='--quit-if-one-screen --RAW-CONTROL-CHARS --ignore-case'
+export LESS='--RAW-CONTROL-CHARS --ignore-case'
 export LESS_TERMCAP_mb=$'\E[01;34m'      # begin blinking
 export LESS_TERMCAP_md=$'\E[01;34;5;47m' # bold
 export LESS_TERMCAP_me=$'\E[0m'          # end mode
