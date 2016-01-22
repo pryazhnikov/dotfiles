@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo `date +"%H:%M:%S"` "[g]it [p]ull [o]rigin run start..."
+
+BRANCH_NAME=`git name-rev --name-only HEAD`
+
+echo `date +"%H:%M:%S"` Pulling $BRANCH_NAME branch from origin...
+git pull origin $BRANCH_NAME
+echo `date +"%H:%M:%S"` "Done!"
+

@@ -1,0 +1,21 @@
+#!/bin/bash
+task_name=$(echo $1 | sed -e 's#https://jira.badoojira.com/browse/##' -e 's#?.*##g')
+
+if [ '' = "$task_name" ]; then
+  >&2 echo "No task name given"
+  exit
+fi
+
+matched_branch=$(git branch | grep "$task_name" | head -n 5 | perl -pe 's/^[\s\*]+//g')
+if [ '' = "$matched_branch" ]; then
+  >&2 echo "No matched branches. Task: '$task_name'"
+  exit
+fi
+
+if [[ $matched_branch == *" "* ]]; then
+  >&2 echo "Task: '$task_name'. Multiple branches found: $matched_barnches"
+  exit
+fi
+
+echo "Task: '$task_name'. Branch to checkout: $matched_branch"
+git checkout $matched_branch
