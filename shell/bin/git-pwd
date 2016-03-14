@@ -1,0 +1,14 @@
+#!/bin/sh
+
+GIT_BRANCH=`git name-rev --name-only HEAD`
+JIRA_CODE=`echo $GIT_BRANCH | sed -e 's/_[a-z0-9_]*//'`
+
+echo Branch: $GIT_BRANCH
+if [ "$GIT_BRANCH" == "$JIRA_CODE" ]
+then
+    echo "Error:  cannot detect jira issue code!"
+else
+    echo "Issue:  https://jira.badoojira.com/browse/$JIRA_CODE"
+fi
+
+echo
