@@ -1,3 +1,3 @@
 #!/bin/sh
 
-git co master
+git checkout master
