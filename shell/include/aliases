@@ -1,68 +1,41 @@
-# ls
-alias la='ls -lhAFG'
-alias ll='ls -lhFG'
-
 # find
 alias fd='find . -type d -not -path "*/.svn*" -not -path "*/.git*" -not -path "*/.hg/*"'
-alias fl='find . -type l'
 alias ff='find . -type f -not -path "*/.svn/*" -not -path "*/.git/*" -not -path "*/.hg/*"'
-alias fj='ff -name "*.js"'
-alias fp='ff \( -name "*.php" -o -name "*.pl" -o -name "*.pm" \)'
-alias fs='ff -name "*.sql"'
+alias fl='find . -type l'
 
 # grep
 alias g='grep --color'
 alias gc='grep -c'
-alias ge='egrep --color'
-alias gn='grep --color -n'
-alias gi='grep --color -i'
-alias gl='grep -l'
 alias gv='grep -v'
-alias gev='egrep -v'
-alias gve='gev'
-alias gin='grep -in'
-alias gni='gin'
-alias giv='grep -iv'
-alias gvi='giv'
 
-# git grep
+# git
 alias gg='git grep'
+alias gco='git checkout'
+alias gnb='git checkout -b'
 
-# xargs + grep
-alias xg='xargs grep --color'
-alias xgn='xargs grep --color -n'
+# ls
+alias la='ls -lhAFG'
+alias ll='ls -lhFG'
 
-# find + xargs + grep
-alias ffxg='ff | xg'
-alias fpxg='fp | xg'
-alias ffxgn='ff | xgn'
-alias fpxgn='fp | xgn'
+# mysql
+alias my='mysql -A'
 
 # svn
 alias sad='svn add'
 alias sin='svn info'
 alias sst='svn status'
 alias sup='svn up --non-interactive'
-#alias syn='sst; echo; sst | ge "^[MRA]" | perl -pe "s/.+?\s(\S+)$/\$1/" | xargs -L 1 php --syntax-check'
 alias sdiff='svn diff --diff-cmd=colordiff'
 
-# Short aliases (no group)
+# xargs + grep
+alias xg='xargs grep --color'
+alias xgn='xargs grep --color -n'
+
+# Other aliases (no group)
 alias ..='cd ..'
 alias df='df -ih'
 alias du='du -h'
 alias hi='history'
-alias srn='sort -rn'
 alias tf='tail -F'
-alias pu='phpunit'
-alias unc='uniq -c'
 alias wl='wc -l'
 alias xa='xargs'
-
-# Long aliases (no group)
-alias diff=colordiff
-alias dirq='diff -rq'
-alias lessln='less --LINE-NUMBERS'
-alias pass='head -n 1 /dev/random | md5'
-alias reload='source ~/.profile'
-alias today='date +%Y%m%d'
-alias trim='perl -pe "s/^\s+//; s/\s+$/\n/"'
