@@ -11,7 +11,7 @@ def copy_binaries(current_dir):
     """
     BINARY_FILES_WHITELIST = ('gcm', 'git-pwd', 'git-task', 'gpm', 'gpo',)
 
-    source_dir = os.path.join(current_dir, 'shell', 'bin')
+    source_dir = os.path.join(current_dir, 'bin')
     target_dir = os.path.join(os.path.expanduser('~'), 'bin')
     if not os.path.exists(target_dir):
         raise OSError("Target dir %s is not exists" % target_dir)
