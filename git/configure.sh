@@ -12,6 +12,7 @@ $GIT_SET grep.lineNumber true
 
 $GIT_SET alias.co checkout
 $GIT_SET alias.ci commit
+$GIT_SET alias.df "diff HEAD"
 $GIT_SET alias.st status
 $GIT_SET alias.br branch
 $GIT_SET alias.unstash "stash pop"
