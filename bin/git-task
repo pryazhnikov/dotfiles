@@ -1,21 +1,39 @@
 #!/bin/bash
-task_name=$(echo $1 | sed -e 's#https://jira.badoojira.com/browse/##' -e 's#?.*##g')
+ISSUE_URL_PREFIX='https://jira.badoojira.com/browse/'
 
-if [ '' = "$task_name" ]; then
-  >&2 echo "No task name given"
+GIT=/usr/bin/git
+GREP=/usr/bin/grep
+SED=/usr/bin/sed
+SORT=/usr/bin/sort
+UNIQ=/usr/bin/uniq
+
+task_arg=$1
+if [[ '' == "$task_arg" ]]; then
+    >&2 echo "No task name/jira url given at argv"
+    exit
+fi
+
+task_name=$(echo $1 | $SED -e "s#${ISSUE_URL_PREFIX}##" -e 's#?.*##g')
+if [[ "$task_name" != "$task_arg"]]; then
+    echo "Task argument preprocessing: '${task_arg}' -> '${task_name}'"
+fi
+
+if [[ '' == "$task_name" ]]; then
+  >&2 echo "No task name found at the argument"
   exit
 fi
 
-matched_branch=$(git branch | grep "$task_name" | head -n 5 | perl -pe 's/^[\s\*]+//g')
-if [ '' = "$matched_branch" ]; then
-  >&2 echo "No matched branches. Task: '$task_name'"
+matched_branch=$($GIT branch -a | $GREP "$task_name" | $SED -e "s#remotes/origin/##" | $SORT | $UNIQ)
+if [[ '' = "$matched_branch" ]]; then
+  >&2 echo "No matched branches found"
   exit
 fi
 
-if [[ $matched_branch == *" "* ]]; then
-  >&2 echo "Task: '$task_name'. Multiple branches found: $matched_barnches"
+multiple_matched_branches=$(echo $matched_branch | $SED -n '/[A-Za-z0-9_] [A-Z]/p')
+if [[ "$multiple_matched_branches" != "" ]]; then
+  >&2 echo "Task: '$task_name'. Multiple branches found: $multiple_matched_branches"
   exit
 fi
 
-echo "Task: '$task_name'. Branch to checkout: $matched_branch"
-git checkout $matched_branch
+echo "Branch to checkout: $matched_branch"
+$GIT checkout $matched_branch
