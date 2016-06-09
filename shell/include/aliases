@@ -5,13 +5,12 @@ alias fl='find . -type l'
 
 # grep
 alias g='grep --color'
-alias gc='grep -c'
-alias gv='grep -v'
 
 # git
 alias gg='git grep'
 alias gco='git checkout'
 alias gnb='git checkout -b'
+alias gti='git'
 
 # ls
 alias la='ls -lhAFG'
