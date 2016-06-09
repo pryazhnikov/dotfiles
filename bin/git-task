@@ -14,7 +14,7 @@ if [[ '' == "$task_arg" ]]; then
 fi
 
 task_name=$(echo $1 | $SED -e "s#${ISSUE_URL_PREFIX}##" -e 's#?.*##g')
-if [[ "$task_name" != "$task_arg"]]; then
+if [[ "$task_name" != "$task_arg" ]]; then
     echo "Task argument preprocessing: '${task_arg}' -> '${task_name}'"
 fi
 
