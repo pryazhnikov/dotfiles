@@ -23,7 +23,7 @@ if [[ '' == "$task_name" ]]; then
   exit
 fi
 
-matched_branch=$($GIT branch -a | $GREP "$task_name" | $SED -e "s#remotes/origin/##" | $SORT | $UNIQ)
+matched_branch=$($GIT branch -a | $GREP -i "$task_name" | $SED -e "s#remotes/origin/##" | $SORT | $UNIQ)
 if [[ '' = "$matched_branch" ]]; then
   >&2 echo "No matched branches found"
   exit
