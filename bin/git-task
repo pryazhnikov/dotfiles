@@ -11,7 +11,10 @@ if [[ '' == "$task_arg" ]]; then
     exit
 fi
 
-if [[ "$JIRA_URL_PREFIX" != "" ]]; then
+if [[ "$JIRA_URL_PREFIX" == "" ]]; then
+    >&2 echo "URL preprocessing is not available! Please define JIRA_URL_PREFIX env var to enable"
+    task_name=$task_arg
+else
     task_name=$(echo $1 | $SED -e "s#${JIRA_URL_PREFIX}##" -e 's#?.*##g')
     if [[ "$task_name" != "$task_arg" ]]; then
         echo "Task argument preprocessing: '${task_arg}' -> '${task_name}'"
