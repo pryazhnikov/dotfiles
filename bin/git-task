@@ -1,6 +1,4 @@
 #!/bin/bash
-ISSUE_URL_PREFIX='https://jira.badoojira.com/browse/'
-
 GIT=/usr/bin/git
 GREP=/usr/bin/grep
 SED=/usr/bin/sed
@@ -13,9 +11,11 @@ if [[ '' == "$task_arg" ]]; then
     exit
 fi
 
-task_name=$(echo $1 | $SED -e "s#${ISSUE_URL_PREFIX}##" -e 's#?.*##g')
-if [[ "$task_name" != "$task_arg" ]]; then
-    echo "Task argument preprocessing: '${task_arg}' -> '${task_name}'"
+if [[ "$JIRA_URL_PREFIX" != "" ]]; then
+    task_name=$(echo $1 | $SED -e "s#${JIRA_URL_PREFIX}##" -e 's#?.*##g')
+    if [[ "$task_name" != "$task_arg" ]]; then
+        echo "Task argument preprocessing: '${task_arg}' -> '${task_name}'"
+    fi
 fi
 
 if [[ '' == "$task_name" ]]; then
