@@ -7,7 +7,7 @@ alias fl='find . -type l'
 alias g='grep --color'
 
 # git
-alias gg='git grep'
+alias gg='git grep --line-number'
 alias gco='git checkout'
 alias gnb='git checkout -b'
 alias gti='git'
