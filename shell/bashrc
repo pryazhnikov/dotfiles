@@ -1,6 +1,0 @@
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
-
-# prompt
-export PS1='\[\e[4;31m\][\u@\h \w]\$\[\e[0m\] '
