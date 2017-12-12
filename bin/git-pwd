@@ -1,9 +1,13 @@
 #!/bin/sh
 
-GIT_BRANCH=`git name-rev --name-only HEAD`
+GIT=`which git`
+
+GIT_BRANCH=`$GIT name-rev --name-only HEAD`
+GIT_ORIGIN_URL=`$GIT config --get remote.origin.url`
 JIRA_CODE=`echo $GIT_BRANCH | sed -e 's/_[a-z0-9_]*//'`
 
 echo Branch: $GIT_BRANCH
+echo Origin: $GIT_ORIGIN_URL
 if [ "$GIT_BRANCH" == "$JIRA_CODE" ]
 then
     >&2 echo "Error:  cannot detect jira issue code!"
