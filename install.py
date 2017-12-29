@@ -9,7 +9,7 @@ def copy_binaries(current_dir):
     """
     Copy custom binary files into $PATH
     """
-    BINARY_FILES_WHITELIST = ('gcm', 'git-pwd', 'git-task', 'gpm', 'gpo',)
+    BINARY_FILES_WHITELIST = ('gcm', 'git-pwd', 'git-task', 'gpm', 'gpo', 'phpunit-resolver')
 
     source_dir = os.path.join(current_dir, 'bin')
     target_dir = os.path.join(os.path.expanduser('~'), 'bin')
