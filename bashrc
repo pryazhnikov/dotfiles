@@ -61,3 +61,12 @@ alias df='df -ih'
 alias du='du -h'
 alias tf='tail -F'
 alias wl='wc -l'
+
+###
+# Unversioned configuration
+# It should be placed at the end of file to make it possible to override everything
+###
+if [ -f ~/.bashrc_local ]; then
+    #echo "Reading local bashrc config"
+    source ~/.bashrc_local
+fi
