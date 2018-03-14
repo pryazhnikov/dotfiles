@@ -5,12 +5,32 @@ GIT=`which git`
 GIT_BRANCH=`$GIT name-rev --name-only HEAD`
 GIT_ORIGIN_URL=`$GIT config --get remote.origin.url`
 JIRA_CODE=`echo $GIT_BRANCH | sed -e 's/_[a-zA-Z0-9_]*//'`
+# SERVER-99999_comp => SERVER-99999
+# QATASKS-777_no_more_getUpdateLocation => QATASKS-777
 
-echo Branch: $GIT_BRANCH
-echo Origin: $GIT_ORIGIN_URL
-if [ "$GIT_BRANCH" == "$JIRA_CODE" ]
-then
-    >&2 echo "Error:  cannot detect jira issue code!"
+echo "Branch:    $GIT_BRANCH"
+echo "Origin:    $GIT_ORIGIN_URL"
+
+# Public URL (GitHub)
+if [[ "$GIT_ORIGIN_URL" == *"git@github.com"* ]]; then
+    GITHUB_URL=`echo "$GIT_ORIGIN_URL" | sed -e 's#^git@github.com:#https://github.com/#; s#\.git$#/#'`
+    echo "GitHub:    $GITHUB_URL"
+fi
+
+# Public URL (Bitbucket)
+if [[ "$GIT_ORIGIN_URL" == *"git@bitbucket.org"* ]]; then
+    BITBUCKET_URL=`echo "$GIT_ORIGIN_URL" | sed -e 's#^git@bitbucket.org:#https://bitbucket.org/#; s#\.git$#/#'`
+    echo "Bitbucket: $BITBUCKET_URL"
+fi
+
+# Private URL (JIRA issue)
+if [[ "$GIT_BRANCH" == "master" ]]; then
+    # Master is a default branch. JIRA issue is not expected
+    exit 0
+fi
+
+if [[ "$GIT_BRANCH" == "$JIRA_CODE" ]]; then
+    >&2 echo "Error:     cannot detect jira issue code!"
     exit
 fi
 
@@ -19,5 +39,5 @@ if [[ "" == "${JIRA_URL_PREFIX}" ]]; then
     exit
 fi
 
-echo "Issue:  ${JIRA_URL_PREFIX}${JIRA_CODE}"
+echo "Issue:     ${JIRA_URL_PREFIX}${JIRA_CODE}"
 echo
