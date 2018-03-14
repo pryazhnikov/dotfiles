@@ -15,18 +15,20 @@ echo "Origin:    $GIT_ORIGIN_URL"
 if [[ "$GIT_ORIGIN_URL" == *"git@github.com"* ]]; then
     GITHUB_URL=`echo "$GIT_ORIGIN_URL" | sed -e 's#^git@github.com:#https://github.com/#; s#\.git$#/#'`
     echo "GitHub:    $GITHUB_URL"
+    exit
 fi
 
 # Public URL (Bitbucket)
 if [[ "$GIT_ORIGIN_URL" == *"git@bitbucket.org"* ]]; then
     BITBUCKET_URL=`echo "$GIT_ORIGIN_URL" | sed -e 's#^git@bitbucket.org:#https://bitbucket.org/#; s#\.git$#/#'`
     echo "Bitbucket: $BITBUCKET_URL"
+    exit
 fi
 
 # Private URL (JIRA issue)
 if [[ "$GIT_BRANCH" == "master" ]]; then
     # Master is a default branch. JIRA issue is not expected
-    exit 0
+    exit
 fi
 
 if [[ "$GIT_BRANCH" == "$JIRA_CODE" ]]; then
