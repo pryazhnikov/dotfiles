@@ -19,7 +19,22 @@ fi
 
 file_name=`echo "$test_full_name" | awk -F '::' '{print $1}'`
 test_name=`echo "$test_full_name" | awk -F '::' '{print $2}'`
+short_file_name=`echo $file_name | sed -e 's:.*\\\\::g'`
 
-echo "Looking up files $file_name with test $test_name"
+if [[ "$test_name" == "" ]]; then
+    filter_argument=""
+else
+    dataset=`echo "$test_name" | awk '{print $2}'`
+    if [[ "$dataset" == "" ]]; then
+        # Test name doesn't contain space, so the quotes are useless
+        filter_argument="--filter ${test_name}"
+    else
+        # Test name contains space, so the quotes are required
+        filter_argument="--filter '${test_name}'"
+    fi
+fi
+
+echo Looking up files $file_name \(or $short_file_name\) with test $test_name
 echo
-find "$tests_path" -type f -name "*${file_name}.php" -exec echo "phpunit --filter=$test_name {}" \;
+find "$tests_path" -type f -name "${file_name}.php" \
+    -exec echo "phpunit ${filter_argument} {}" \;
