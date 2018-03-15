@@ -48,7 +48,7 @@ $ git pwd
 
 # git pwd: public repo example
 $ git pwd
-📋  Branch:    cli_emoji_integration
+📋  Branch:    master
 📦  Origin:    git@github.com:pryazhnikov/dotfiles.git
 🚀  GitHub:    https://github.com/pryazhnikov/dotfiles/
 
