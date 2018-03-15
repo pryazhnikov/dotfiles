@@ -42,43 +42,46 @@ $ JIRA_URL_PREFIX=https://jiradomain.xyz/browse/
 
 # git pwd: private repo example & feature branch
 $ git pwd
-Branch: PROJECT-50_branchSuffix
-Origin: git@gitdomain.xyz:project.git
-Issue:  https://jiradomain.xyz/browse/PROJECT-50
+📋  Branch:    PROJECT-50_branchSuffix
+📦  Origin:    git@gitdomain.xyz:project.git
+🔬  Issue:     https://jiradomain.xyz/browse/PROJECT-50
 
 # git pwd: public repo example
 $ git pwd
-Branch:    master
-Origin:    git@github.com:pryazhnikov/dotfiles.git
-GitHub:    https://github.com/pryazhnikov/dotfiles/
+📋  Branch:    master
+📦  Origin:    git@github.com:pryazhnikov/dotfiles.git
+🚀  GitHub:    https://github.com/pryazhnikov/dotfiles/
 
 # git task: multiple branches example (no checkout was made)
 $ git task PROJECT-300
-Task: 'PROJECT-300'. Multiple branches found: PROJECT-300_branchSuffix PROJECT-300_branchSuffix_copy
+⚠️  Task: 'PROJECT-300'. Multiple branches found: PROJECT-300_branchSuffix PROJECT-300_branchSuffix_copy
 
 # git task: th only branch example (checkout was made)
 $ git task https://jiradomain.xyz/browse/PROJECT-777
-Task argument preprocessing: 'https://jiradomain.xyz/browse/PROJECT-777' -> 'PROJECT-777'
-Branch to checkout:   PROJECT-777_sync
+✏️  Task argument preprocessing: 'https://jiradomain.xyz/browse/PROJECT-777' -> 'PROJECT-777'
+📋  Branch to checkout:   PROJECT-777_sync
+Checking out files: 100% (72700/72700), done.
+...
+🏁  21:22:17 Done!
 
 # This env var is optional for "phpunit-resolver"
 $ DEFAULT_PHPUNIT_TESTS_PATH=./UTests
 
 # phpunit-resolver: a testcase class only example
 $ phpunit-resolver ServerGetUserTest
-Looking up files ServerGetUserTest (or ServerGetUserTest) with test
+⌛️  Looking up files ServerGetUserTest (or ServerGetUserTest) with test
 
 phpunit  ./UTests//bmaFunctional/ServerGetUserTest.php
 
 # phpunit-resolver: a test name example
 $ phpunit-resolver ServerGetUserTest::testSpecificUserIdVariations
-Looking up files ServerGetUserTest (or ServerGetUserTest) with test testSpecificUserIdVariations
+⌛️  Looking up files ServerGetUserTest (or ServerGetUserTest) with test testSpecificUserIdVariations
 
 phpunit --filter testSpecificUserIdVariations ./UTests/bmaFunctional/ServerGetUserTest.php
 
 # phpunit-resolver: a test name with data set example
 $ phpunit-resolver 'AddPhotosTest::testCanShow with data set "female"' UTests/
-Looking up files AddPhotosTest (or AddPhotosTest) with test testCanShow with data set "female"
+⌛️  Looking up files AddPhotosTest (or AddPhotosTest) with test testCanShow with data set "female"
 
 phpunit --filter 'testCanShow with data set "female"' UTests//_packages/PromoBlock/Banner/AddPhotosTest.php
 ```

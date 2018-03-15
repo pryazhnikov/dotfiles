@@ -8,20 +8,20 @@ JIRA_CODE=`echo $GIT_BRANCH | sed -e 's/_[a-zA-Z0-9_]*//'`
 # SERVER-99999_comp => SERVER-99999
 # QATASKS-777_no_more_getUpdateLocation => QATASKS-777
 
-echo "Branch:    $GIT_BRANCH"
-echo "Origin:    $GIT_ORIGIN_URL"
+echo "📋  Branch:    $GIT_BRANCH"
+echo "📦  Origin:    $GIT_ORIGIN_URL"
 
-# Public URL (GitHub)
+# Public URL (Github)
 if [[ "$GIT_ORIGIN_URL" == *"git@github.com"* ]]; then
     GITHUB_URL=`echo "$GIT_ORIGIN_URL" | sed -e 's#^git@github.com:#https://github.com/#; s#\.git$#/#'`
-    echo "GitHub:    $GITHUB_URL"
+    echo "🚀  GitHub:    $GITHUB_URL"
     exit
 fi
 
 # Public URL (Bitbucket)
 if [[ "$GIT_ORIGIN_URL" == *"git@bitbucket.org"* ]]; then
     BITBUCKET_URL=`echo "$GIT_ORIGIN_URL" | sed -e 's#^git@bitbucket.org:#https://bitbucket.org/#; s#\.git$#/#'`
-    echo "Bitbucket: $BITBUCKET_URL"
+    echo "🚀  Bitbucket: $BITBUCKET_URL"
     exit
 fi
 
@@ -32,14 +32,14 @@ if [[ "$GIT_BRANCH" == "master" ]]; then
 fi
 
 if [[ "$GIT_BRANCH" == "$JIRA_CODE" ]]; then
-    >&2 echo "Error:     cannot detect jira issue code!"
+    >&2 echo "❌  Error:     cannot detect jira issue code!"
     exit
 fi
 
 if [[ "" == "${JIRA_URL_PREFIX}" ]]; then
-    >&2 echo "Please define JIRA_URL_PREFIX env var"
+    >&2 echo "❌  Please define JIRA_URL_PREFIX env var"
     exit
 fi
 
-echo "Issue:     ${JIRA_URL_PREFIX}${JIRA_CODE}"
+echo "🔬  Issue:     ${JIRA_URL_PREFIX}${JIRA_CODE}"
 echo
