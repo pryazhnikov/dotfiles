@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo `date +"%H:%M:%S"` "git pull master" run start...
+echo "💣  `date +"%H:%M:%S"` [g]it [p]ull [m]aster run start..."
 git fetch
 git merge origin/master
-echo `date +"%H:%M:%S"` "Done!"
+echo "🏁  `date +"%H:%M:%S"` Done!"

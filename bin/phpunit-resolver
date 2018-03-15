@@ -34,7 +34,7 @@ else
     fi
 fi
 
-echo Looking up files $file_name \(or $short_file_name\) with test $test_name
+echo "⌛️  Looking up files $file_name \(or $short_file_name\) with test $test_name"
 echo
 find "$tests_path" -type f -name "${file_name}.php" \
     -exec echo "phpunit ${filter_argument} {}" \;
