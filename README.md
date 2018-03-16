@@ -56,13 +56,26 @@ $ git pwd
 $ git task PROJECT-300
 ⚠️  Task: 'PROJECT-300'. Multiple branches found: PROJECT-300_branchSuffix PROJECT-300_branchSuffix_copy
 
-# git task: th only branch example (checkout was made)
+# git task: the only branch example (checkout was made)
 $ git task https://jiradomain.xyz/browse/PROJECT-777
 ✏️  Task argument preprocessing: 'https://jiradomain.xyz/browse/PROJECT-777' -> 'PROJECT-777'
 📋  Branch to checkout:   PROJECT-777_sync
 Checking out files: 100% (72700/72700), done.
 ...
 🏁  21:22:17 Done!
+
+# git latest-build: checkout the latest build branch
+$ git latest-build
+⌛️  21:30:24 Data fetch from remote repo...
+remote: Counting objects: 69, done.
+remote: Compressing objects: 100% (69/69), done.
+...
+✏️  21:31:05 Matched branch search...
+✅  Branch to checkout: build_2018.03.19
+Checking out files: 100% (76274/76274), done.
+Branch build_2018.03.19 set up to track remote branch build_2018.03.19 from origin.
+Switched to a new branch 'build_2018.03.19'
+🏁  21:31:40 Done!
 
 # This env var is optional for "phpunit-resolver"
 $ DEFAULT_PHPUNIT_TESTS_PATH=./UTests
