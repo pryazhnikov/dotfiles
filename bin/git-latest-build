@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+
+echo "⌛️  `date +"%H:%M:%S"` Data fetch from remote repo..."
+git fetch origin
+
+echo "✏️  `date +"%H:%M:%S"` Matched branch search..."
+NEWBUILD=$(git branch -a | grep "remotes/origin/build" | sort -n | tail -n 1 | cut -d "/" -f 3)
+if [[ "$NEWBUILD" == "" ]]; then
+    >&2 echo "❌ No build branch found in repo"
+    exit 1
+fi
+
+echo "✅  Branch to checkout: $NEWBUILD"
+git checkout $NEWBUILD
+echo "🏁  `date +"%H:%M:%S"` Done!"
