@@ -15,6 +15,7 @@ $GIT_SET alias.ci commit
 $GIT_SET alias.df "diff HEAD"
 $GIT_SET alias.st status
 $GIT_SET alias.br branch
+$GIT_SET alias.lb latest-build
 $GIT_SET alias.head "checkout HEAD"
 $GIT_SET alias.unstash "stash pop"
 $GIT_SET alias.pub "push origin HEAD"
