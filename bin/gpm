@@ -1,6 +1,7 @@
 #!/bin/sh
+set -e
 
-echo "💣  `date +"%H:%M:%S"` [g]it [p]ull [m]aster run start..."
+echo "📥  `date +"%H:%M:%S"` [g]it [p]ull [m]aster run start..."
 git fetch
 git merge origin/master
 echo "🏁  `date +"%H:%M:%S"` Done!"

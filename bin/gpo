@@ -1,6 +1,7 @@
 #!/bin/sh
+set -e
 
-echo "💣  `date +"%H:%M:%S"` [g]it [p]ull [o]rigin run start..."
+echo "📥  `date +"%H:%M:%S"` [g]it [p]ull [o]rigin run start..."
 
 BRANCH_NAME=`git name-rev --name-only HEAD`
 
