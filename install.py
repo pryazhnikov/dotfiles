@@ -11,10 +11,11 @@ def copy_binaries(current_dir):
     """
     BINARY_FILES_WHITELIST = (
         'gcm',
-        'git-pwd',
-        'git-task',
         'gpm',
         'gpo',
+        'git-hash',
+        'git-pwd',
+        'git-task',
         'git-latest-build',
         'phpunit-resolver',
     )

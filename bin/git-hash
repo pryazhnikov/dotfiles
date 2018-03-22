@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+REF="$1"
+
+# Var and `` are mandatory to use output in non interactive mode
+HASH=`git show --no-patch --format='%H' $REF`
+echo $HASH
