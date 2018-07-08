@@ -22,4 +22,5 @@ $GIT_SET alias.pub "push origin HEAD"
 $GIT_SET alias.patch "diff --patch HEAD"
 $GIT_SET alias.recent "for-each-ref --sort=-committerdate refs/heads/ --format='%(refname:short) %(committer)' --count 10"
 $GIT_SET alias.uncommit "reset --soft HEAD^"
+$GIT_SET alias.v "version"
 
