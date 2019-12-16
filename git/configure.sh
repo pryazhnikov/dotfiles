@@ -10,6 +10,7 @@ $GIT_SET apply.whitespaces nowarn
 $GIT_SET color.ui true
 $GIT_SET grep.lineNumber false
 
+$GIT_SET alias.amend "commit --amend"
 $GIT_SET alias.co checkout
 $GIT_SET alias.ci commit
 $GIT_SET alias.df "diff HEAD"
