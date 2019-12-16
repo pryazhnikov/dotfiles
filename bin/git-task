@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 GIT=/usr/bin/git
 GREP=/usr/bin/grep
 SED=/usr/bin/sed
