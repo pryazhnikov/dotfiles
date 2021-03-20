@@ -24,7 +24,6 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=1000
 export SAVEHIST=$HISTSIZE
 
-export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='7;36'
 
 export LESS='--RAW-CONTROL-CHARS --ignore-case'
@@ -37,6 +36,10 @@ export LESS='--RAW-CONTROL-CHARS --ignore-case'
 alias fd='find . -type d -not -path "*/.svn*" -not -path "*/.git*" -not -path "*/.hg/*"'
 alias ff='find . -type f -not -path "*/.svn/*" -not -path "*/.git/*" -not -path "*/.hg/*"'
 alias fl='find . -type l'
+
+## grep
+alias grep='grep --color=auto'
+alias zgrep='zgrep --color=auto'
 
 # git
 alias gg='git grep --line-number'
