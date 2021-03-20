@@ -11,10 +11,21 @@ if [ -d ~/bin ]; then
 fi
 
 ###
+# Helper functions
+###
+
+# "main" => " (main)"
+parse_git_branch() {
+    git branch --show-current 2>/dev/null \
+        | sed -e 's/^\(.*\)/ \(\1\)/'
+}
+
+###
 # Environments configuration
 ###
 
-export PS1='\[\e[4;31m\][\u@\h \w]\$\[\e[0m\] '
+export PS1="\[\e[4;32m\]@\h \w/\$(parse_git_branch)\[\e[4;32m\]\$\[\e[0m\] "
+export PS2="\[\e[4;32m\] >\[\e[0m\] "
 export MYSQL_PS1='[\h] \d> '
 
 export EDITOR=vi
