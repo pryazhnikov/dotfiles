@@ -48,6 +48,7 @@ alias gnb='git checkout -b'
 alias gti='git'
 
 # ls
+alias l.='ls -dFG .*'
 alias la='ls -lhAFG'
 alias ll='ls -lhFG'
 
