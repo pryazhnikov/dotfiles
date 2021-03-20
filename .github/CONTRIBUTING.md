@@ -4,7 +4,7 @@ This is a naive template of the contributing guide.
 
 ## CLI commands
 
-All CLI commands are stored at `bin/` directory. Each command file MUST be added into files whitelist at `install.py` to be deployed into `~/bin/`.
+All CLI commands are stored at `bin/` directory. Each command file MUST be added into files allow list at `install.py` to be deployed into `~/bin/`.
 
 It's a good idea to use emoji at CLI commands output to make it easier to read.
 

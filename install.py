@@ -9,7 +9,7 @@ def copy_binaries(current_dir):
     """
     Copy custom binary files into $PATH
     """
-    BINARY_FILES_WHITELIST = (
+    BINARY_FILES_ALLOW_LIST = (
         'gcm',
         'gpm',
         'gpo',
@@ -25,7 +25,7 @@ def copy_binaries(current_dir):
     if not os.path.exists(target_dir):
         raise OSError("Target dir %s is not exists" % target_dir)
 
-    for file_name in BINARY_FILES_WHITELIST:
+    for file_name in BINARY_FILES_ALLOW_LIST:
         source_file = os.path.join(source_dir, file_name)
         target_file = os.path.join(target_dir, file_name)
         print "Copying %s to %s" % (source_file, target_file)
