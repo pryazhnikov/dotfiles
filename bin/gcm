@@ -1,6 +1,10 @@
 #!/bin/sh
 set -e
 
-echo "💣  `date +"%H:%M:%S"` [g]it [p]checkout [m]aster run start..."
-git checkout master
+echo "💣  `date +"%H:%M:%S"` [g]it [p]checkout [m]ain run start..."
+
+default_branch=`git default-branch`
+echo "⌛️  `date +"%H:%M:%S"` Branch to checkout: $default_branch"
+
+git checkout "$default_branch"
 echo "🏁  `date +"%H:%M:%S"` Done!"

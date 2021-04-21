@@ -1,0 +1,26 @@
+#!/bin/sh
+# set -e
+# The reasons do not use `set -e`:
+# * `git config --get` returns an error in case of missing value
+# * `git show-ref` return an error in case of missing branch
+
+POSSIBLE_DEFAULT_BRANCHES="main master"
+
+# Getting from configuration (git 2.28+)
+config_branch=`git config --get init.defaultBranch`
+if [[ "$config_branch" != "" ]]; then
+    echo $config_branch
+    exit 0
+fi
+
+# No explicit value, so trying to find something from possible values
+for branch in $POSSIBLE_DEFAULT_BRANCHES; do
+    branch_hash=`git show-ref $branch`
+    if [ "$branch_hash" != "" ]; then
+        echo $branch
+        exit 0
+    fi
+done
+
+>&2 echo "❌ No default branch found"
+exit 1

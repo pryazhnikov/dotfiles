@@ -13,6 +13,7 @@ def copy_binaries(current_dir):
         'gcm',
         'gpm',
         'gpo',
+        'git-default-branch',
         'git-hash',
         'git-pwd',
         'git-task',
