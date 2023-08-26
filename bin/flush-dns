@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+OS=`uname -s`
+
+if [ "$OS" != "Darwin" ]; then
+	echo "Only MacOS is supported!">&2
+	exit 1
+fi
+
+# https://stackoverflow.com/questions/16929425/reset-dns-cache-on-mac
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+
+echo "Success!"

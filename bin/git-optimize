@@ -1,0 +1,32 @@
+#!/bin/sh
+set -e
+
+GIT_DIR='.git'
+
+print_git_size() {
+    HEADER=$1
+
+    echo "$HEADER"
+    du -h -d0 "$GIT_DIR"
+}
+
+if [ -d "$GIT_DIR" ]; then
+  echo "✅ $GIT_DIR found."
+else
+  echo "❌ $GIT_DIR does not exist. Nothing to do here!"
+  exit 1
+fi
+
+echo
+print_git_size "⌛️ Git directory size before:"
+
+echo
+echo "⌛️ Cleanup start..."
+git gc --aggressive --force
+echo "Cleanup is finished"
+
+echo
+print_git_size "⌛️ Git directory size after:"
+
+echo
+echo "🏁 Done!"
