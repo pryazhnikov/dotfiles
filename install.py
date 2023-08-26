@@ -15,10 +15,12 @@ def copy_binaries(current_dir):
         'gpo',
         'git-default-branch',
         'git-hash',
+        'git-optimize',
         'git-pwd',
         'git-task',
         'git-latest-build',
         'phpunit-resolver',
+        'flush-dns',
     )
 
     source_dir = os.path.join(current_dir, 'bin')

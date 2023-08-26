@@ -30,9 +30,11 @@ Available commands:
 | `gcm`  | It's a shortcut of `git checkout master`  |
 | `gpm`  | It's a shortcut of `git pull origin master`  |
 | `gpo`  | It's a shortcut of `git pull origin`  |
+| `git-optimize`  | Running `git gc` to optimize the size of .git directory  |
 | `git-pwd`  | Brief info about repo branch, origin and related JIRA issue  |
 | `git-task`  | Find and checkout the branch related to given JIRA issue code/URL  |
 | `phpunit-resolver`  | Generate phpunit test run command based on given test name  |
+| `flush-dns`  | A shortcut for MacOS flush DNS commands  |
 
 How to use:
 
