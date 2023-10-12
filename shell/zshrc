@@ -1,0 +1,22 @@
+# Prompt configuration
+
+# Config reloading (shell specific alias)
+alias reload='. ~/.zshrc'
+
+# Git branch
+# See: https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+source ~/.git-prompt.sh
+
+# Colored output
+# See: https://stackoverflow.com/questions/689765/how-can-i-change-the-color-of-my-prompt-in-zsh-different-from-normal-text
+autoload -U colors && colors
+PS1="%{$fg[green]%}@%M %B%{$fg[magenta]%}%~%b$(__git_ps1 " (%s)")%{$fg[green]%}%B$%{$reset_color%}%b "
+PS2=" %{$fg[green]%}%B>%b%{$reset_color%} "
+
+# Shell completion
+autoload -Uz compinit && compinit
+
+# To restore the emacs keymap (instead of vi)
+# Required for navigation
+# See: https://defkey.com/zsh-z-shell-shortcuts#google_vignette
+bindkey -e

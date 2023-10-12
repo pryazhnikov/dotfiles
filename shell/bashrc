@@ -1,0 +1,32 @@
+# Check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+###
+# Helper functions
+###
+
+# "main" => " (main)"
+parse_git_branch() {
+    git branch --show-current 2>/dev/null \
+        | sed -e 's/^\(.*\)/ \(\1\)/'
+}
+
+###
+# Environments configuration
+###
+
+export PS1="\[\e[4;32m\]@\h \w/\$(parse_git_branch)\[\e[4;32m\]\$\[\e[0m\] "
+export PS2="\[\e[4;32m\] >\[\e[0m\] "
+
+# Config reloading (shell specific alias)
+alias reload='. ~/.bashrc'
+
+###
+# Unversioned configuration
+# It should be placed at the end of file to make it possible to override everything
+###
+if [ -f ~/.bashrc_local ]; then
+    #echo "Reading local bashrc config"
+    source ~/.bashrc_local
+fi
