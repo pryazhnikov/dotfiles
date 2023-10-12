@@ -6,11 +6,14 @@ File structure:
   bin/ - useful CLI commands
   git/ - git configuration & aliases
     hooks/ - some git hook implementations
+  shell/ - shell configurations
 ```
 
-How to deploy:
+How to setup:
 
 ```shell
+git clone git@github.com:pryazhnikov/dotfiles.git .
+
 # Apply git configuration
 ./git/configure.sh
 
@@ -19,6 +22,19 @@ cp -rv git/hooks/* .git/
 
 # Copy cli commands into ~/bin/
 ./install.py
+
+# Apply shell configurations
+echo "# ZSH configuration" >> ~/.zshrc
+echo "_CONFIG_DIR='$(pwd)/shell'" >> ~/.zshrc
+echo ". \$_CONFIG_DIR/_common" >> ~/.zshrc
+echo ". \$_CONFIG_DIR/zshrc" >> ~/.zshrc
+
+echo "# Bash configuration" >> ~/.bashrc
+echo "_CONFIG_DIR='$(pwd)/shell'" >> ~/.bashrc
+echo ". \$_CONFIG_DIR/_common" >> ~/.bashrc
+echo ". \$_CONFIG_DIR/bashrc" >> ~/.bashrc
+
+chsh -s $(which zsh)
 ```
 
 ## CLI Commands (see [`bin/`](bin/))
