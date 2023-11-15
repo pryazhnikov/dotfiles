@@ -3,14 +3,20 @@
 # Config reloading (shell specific alias)
 alias reload='. ~/.zshrc'
 
-# Git branch
-# See: https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
-source ~/.git-prompt.sh
+# Git branch processing
+# "main" => " (main)"
+autoload -Uz vcs_info
+precmd() {
+  vcs_info
+}
+zstyle ':vcs_info:git:*' formats ' (%b)'
 
 # Colored output
 # See: https://stackoverflow.com/questions/689765/how-can-i-change-the-color-of-my-prompt-in-zsh-different-from-normal-text
 autoload -U colors && colors
-PS1="%{$fg[green]%}@%M %B%{$fg[magenta]%}%~%b$(__git_ps1 " (%s)")%{$fg[green]%}%B$%{$reset_color%}%b "
+# autoload -Uz vcs_info
+setopt PROMPT_SUBST
+PS1='%{$fg[green]%}@%M %B%{$fg[magenta]%}%~%b%{$fg[green]%}${vcs_info_msg_0_}%B$%{$reset_color%}%b '
 PS2=" %{$fg[green]%}%B>%b%{$reset_color%} "
 
 # Shell completion
@@ -20,3 +26,14 @@ autoload -Uz compinit && compinit
 # Required for navigation
 # See: https://defkey.com/zsh-z-shell-shortcuts#google_vignette
 bindkey -e
+
+### Temporary fix to use short aliases
+
+###
+# Unversioned configuration
+# It should be placed at the end of file to make it possible to override everything
+###
+if [ -f ~/.bashrc_local ]; then
+    #echo "Reading local bashrc config"
+    source ~/.bashrc_local
+fi
