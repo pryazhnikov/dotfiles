@@ -56,3 +56,8 @@ alias df='df -ih'
 alias du='du -h'
 alias tf='tail -F'
 alias wl='wc -l'
+
+# path shortcuts (see `init_dectories.sh`)
+alias b="cd ~/BD/"
+alias p="cd ~/p/"
+alias pp="cd ~/p/_personal/"

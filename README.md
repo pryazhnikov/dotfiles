@@ -20,8 +20,11 @@ git clone git@github.com:pryazhnikov/dotfiles.git .
 # Install git hooks
 cp -rv git/hooks/* .git/
 
+# Init directories structure
+./shell/init_directories.sh
+
 # Copy cli commands into ~/bin/
-./install.py
+./copy_binaries.py
 
 # Apply shell configurations
 echo "# ZSH configuration" >> ~/.zshrc
@@ -34,6 +37,7 @@ echo "_CONFIG_DIR='$(pwd)/shell'" >> ~/.bashrc
 echo ". \$_CONFIG_DIR/_common" >> ~/.bashrc
 echo ". \$_CONFIG_DIR/bashrc" >> ~/.bashrc
 
+# Use zsh as a default shell
 chsh -s $(which zsh)
 ```
 
