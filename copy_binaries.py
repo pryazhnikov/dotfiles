@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 '''
 Install config into current machine
 '''
@@ -31,7 +31,7 @@ def copy_binaries(current_dir):
     for file_name in BINARY_FILES_ALLOW_LIST:
         source_file = os.path.join(source_dir, file_name)
         target_file = os.path.join(target_dir, file_name)
-        print "Copying %s to %s" % (source_file, target_file)
+        print("Copying {} to {}".format(source_file, target_file))
         copyfile(source_file, target_file)
         copystat(source_file, target_file)
 
