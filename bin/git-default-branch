@@ -31,9 +31,11 @@ return_branch_if_exists() {
 ### Logic start
 
 # Getting from configuration (git 2.28+)
-config_branch=`$GIT config --get init.defaultBranch`
+config_branch=`$GIT config --get --local init.defaultBranch`
 if [[ "$config_branch" != "" ]]; then
     return_branch_if_exists "$config_branch"
+
+    fatal_error "Local defaultBranch ($config_branch) id not found, please fix it!"
 fi
 
 # No explicit value, so trying to find something from possible values
@@ -41,4 +43,4 @@ for branch in $POSSIBLE_DEFAULT_BRANCHES; do
     return_branch_if_exists "$branch"
 done
 
-fatal_error "No default branch found (init.defaultBranch: $config_branch, checked options: $POSSIBLE_DEFAULT_BRANCHES)"
+fatal_error "No default branch found (checked options: $POSSIBLE_DEFAULT_BRANCHES)"
