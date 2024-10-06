@@ -3,12 +3,16 @@ set -e
 
 GIT=`which git`
 
-GIT_BRANCH=`$GIT name-rev --name-only HEAD`
+GIT_USER=`$GIT config --get user.name`
+GIT_EMAIL=`$GIT config --get user.email`
+GIT_BRANCH=`$GIT branch --show-current`
 GIT_ORIGIN_URL=`$GIT config --get remote.origin.url`
 JIRA_CODE=`echo $GIT_BRANCH | sed -e 's/_[a-zA-Z0-9_]*//'`
 # SERVER-99999_comp => SERVER-99999
 # QATASKS-777_no_more_getUpdateLocation => QATASKS-777
 
+echo "👤  User:      $GIT_USER"
+echo "📫  E-mail:    $GIT_EMAIL"
 echo "📋  Branch:    $GIT_BRANCH"
 echo "📦  Origin:    $GIT_ORIGIN_URL"
 
