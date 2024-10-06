@@ -31,8 +31,9 @@ if [[ "$GIT_ORIGIN_URL" == *"git@bitbucket.org"* ]]; then
 fi
 
 # Private URL (JIRA issue)
-if [[ "$GIT_BRANCH" == "master" ]]; then
-    # Master is a default branch. JIRA issue is not expected
+GIT_DEFAULT_BRANCH=`$GIT default-branch`
+if [[ "$GIT_BRANCH" == "$GIT_DEFAULT_BRANCH" ]]; then
+    # JIRA issue is not expected for this branch
     exit
 fi
 
