@@ -15,9 +15,26 @@ export HISTCONTROL=ignoreboth
 export HISTSIZE=1000
 export SAVEHIST=$HISTSIZE
 
+# https://www.gnu.org/software/grep/manual/html_node/Environment-Variables.html
+# ‘7’ for inverse
+# ‘30’ to ‘37’ for foreground colors (36 - cyan)
 export GREP_COLOR='7;36'
 
 export LESS='--RAW-CONTROL-CHARS --ignore-case'
+
+# Search LSCOLORS section at "man ls"
+# 1.   directory - green ("c")
+# 2.   symbolic link - magenta ("f")
+# 3.   socket - brown ("d")
+# 4.   pipe - brown ("d")
+# 5.   executable - bold cyan ("G")
+# 6.   block special
+# 7.   character special
+# 8.   executable with setuid bit set
+# 9.   executable with setgid bit set
+# 10.  directory writable to others, with sticky bit
+# 11.  directory writable to others, without sticky bit
+export LSCOLORS="cxfxdxdxGxegedabagacad"
 
 ###
 # Aliases configuration
