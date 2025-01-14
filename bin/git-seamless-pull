@@ -1,6 +1,5 @@
 #!/bin/sh
-# WE should process errors manually
-#set -e
+set -e
 
 REMOTE_NAME="$1"
 BRANCH_NAME="$2"
@@ -15,7 +14,23 @@ if [ "$BRANCH_NAME" == "" ]; then
     exit 1
 fi
 
+stash_was_called=0
+if [ -n "$(git status --porcelain)" ]; then
+    echo "⌛️  `date +"%H:%M:%S"` There are uncommitted changes in the working directory. Stash call is required..."
+    git stash
+    stash_was_called=1
+else
+    echo "✅  `date +"%H:%M:%S"` Working dir is clean, ready to pull..."
+    exit 0
+fi
+
 echo "⌛️  `date +"%H:%M:%S"` Pulling $BRANCH_NAME branch from $REMOTE_NAME..."
 git pull "$REMOTE_NAME" "$BRANCH_NAME"
+
+if [ "$stash_was_called" == "1" ]; then
+    echo "⌛️  `date +"%H:%M:%S"` Getting uncommited changes from git stash..."
+    git stash pop
+fi
+
 echo "🏁  `date +"%H:%M:%S"` Done!"
 
