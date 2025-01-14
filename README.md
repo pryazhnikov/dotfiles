@@ -53,6 +53,7 @@ Available commands:
 | `git-optimize`  | Running `git gc` to optimize the size of .git directory  |
 | `git-pwd`  | Brief info about repo branch, origin and related JIRA issue  |
 | `git-task`  | Find and checkout the branch related to given JIRA issue code/URL  |
+| `git-seamless-pull` | Pull with an automatic `git stash` / `git stash pop` calls if needed  |
 | `phpunit-resolver`  | Generate phpunit test run command based on given test name  |
 | `flush-dns`  | A shortcut for MacOS flush DNS commands  |
 
