@@ -4,8 +4,4 @@ set -e
 echo "📥  `date +"%H:%M:%S"` [g]it [p]ull [m]ain run start..."
 
 default_branch=`git default-branch`
-echo "⌛️  `date +"%H:%M:%S"` Remote branch to merge: $default_branch"
-
-git fetch
-git merge origin/$default_branch
-echo "🏁  `date +"%H:%M:%S"` Done!"
+git-seamless-pull origin "$default_branch"
