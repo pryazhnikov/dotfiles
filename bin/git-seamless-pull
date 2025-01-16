@@ -21,7 +21,6 @@ if [ -n "$(git status --porcelain)" ]; then
     stash_was_called=1
 else
     echo "✅  `date +"%H:%M:%S"` Working dir is clean, ready to pull..."
-    exit 0
 fi
 
 echo "⌛️  `date +"%H:%M:%S"` Pulling $BRANCH_NAME branch from $REMOTE_NAME..."
