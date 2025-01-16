@@ -15,7 +15,7 @@ if [ "$BRANCH_NAME" == "" ]; then
 fi
 
 stash_was_called=0
-if [ -n "$(git status --porcelain)" ]; then
+if [ -n "$(git diff-index HEAD)" ]; then
     echo "⌛️  `date +"%H:%M:%S"` There are uncommitted changes in the working directory. Stash call is required..."
     git stash
     stash_was_called=1
