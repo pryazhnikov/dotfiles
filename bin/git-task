@@ -7,12 +7,27 @@ SED=/usr/bin/sed
 SORT=/usr/bin/sort
 UNIQ=/usr/bin/uniq
 
+if [[ "$JIRA_URL_PREFIX" == "" ]]; then
+    >&2 echo "❌  URL preprocessing is not available! Please define JIRA_URL_PREFIX env var to enable"
+    exit 1
+fi
+
+# Use case #1: open issue url for current branch
 task_arg=$1
 if [[ '' == "$task_arg" ]]; then
-    >&2 echo "❌  No task name/jira url given at argv"
+    CURRENT_BRANCH=`$GIT branch --show-current`
+    JIRA_CODE=`echo $CURRENT_BRANCH | sed -e 's/_[a-zA-Z0-9_]*//'`
+    if [[ '' = "$JIRA_CODE" ]]; then
+      >&2 echo "❌  Cannot detect JIRA code from branch ($CURRENT_BRANCH)"
+      exit 1
+    fi
+
+    echo "🔬 Opening issue: ${JIRA_URL_PREFIX}${JIRA_CODE}"
+    open "${JIRA_URL_PREFIX}${JIRA_CODE}"
     exit
 fi
 
+# Use case #2: switch to issue branch from the given URL
 if [[ "$JIRA_URL_PREFIX" == "" ]]; then
     >&2 echo "❌  URL preprocessing is not available! Please define JIRA_URL_PREFIX env var to enable"
     task_name=$task_arg
