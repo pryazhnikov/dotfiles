@@ -20,7 +20,6 @@ def copy_binaries(current_dir):
         'git-task',
         'git-latest-build',
         'git-seamless-pull',
-        'phpunit-resolver',
         'flush-dns',
     )
 
