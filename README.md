@@ -54,7 +54,6 @@ Available commands:
 | `git-pwd`  | Brief info about repo branch, origin and related JIRA issue  |
 | `git-task`  | Find and checkout the branch related to given JIRA issue code/URL  |
 | `git-seamless-pull` | Pull with an automatic `git stash` / `git stash pop` calls if needed  |
-| `phpunit-resolver`  | Generate phpunit test run command based on given test name  |
 | `flush-dns`  | A shortcut for MacOS flush DNS commands  |
 
 How to use:
@@ -99,25 +98,3 @@ Checking out files: 100% (76274/76274), done.
 Branch build_2018.03.19 set up to track remote branch build_2018.03.19 from origin.
 Switched to a new branch 'build_2018.03.19'
 🏁  21:31:40 Done!
-
-# This env var is optional for "phpunit-resolver"
-$ DEFAULT_PHPUNIT_TESTS_PATH=./UTests
-
-# phpunit-resolver: a testcase class only example
-$ phpunit-resolver ServerGetUserTest
-⌛️  Looking up files ServerGetUserTest (or ServerGetUserTest) with test
-
-phpunit  ./UTests//bmaFunctional/ServerGetUserTest.php
-
-# phpunit-resolver: a test name example
-$ phpunit-resolver ServerGetUserTest::testSpecificUserIdVariations
-⌛️  Looking up files ServerGetUserTest (or ServerGetUserTest) with test testSpecificUserIdVariations
-
-phpunit --filter testSpecificUserIdVariations ./UTests/bmaFunctional/ServerGetUserTest.php
-
-# phpunit-resolver: a test name with data set example
-$ phpunit-resolver 'AddPhotosTest::testCanShow with data set "female"' UTests/
-⌛️  Looking up files AddPhotosTest (or AddPhotosTest) with test testCanShow with data set "female"
-
-phpunit --filter 'testCanShow with data set "female"' UTests//_packages/PromoBlock/Banner/AddPhotosTest.php
-```
