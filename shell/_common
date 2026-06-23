@@ -57,8 +57,7 @@ alias gti='git'
 
 # ls
 alias l.='ls -dFG .*'
-alias la='ls -lhAFG' # List + hidden files + file types + colors
-alias ll='ls -lhFG' # List + file types + colors
+alias ll='ls -lhAFG' # List + hidden files + file types + colors
 
 # mysql
 alias my='mysql -A'
